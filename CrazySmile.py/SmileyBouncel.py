@@ -26,5 +26,6 @@ while keep_going:    # Game loop
     screen.blit(pic, (picx,picy))
     pygame.display.update()
     timer.tick(60)
+    # print('FPS: {}'.format(timer.get_fps()))
 
 pygame.quit()        # Exit
