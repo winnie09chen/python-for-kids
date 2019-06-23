@@ -20,15 +20,16 @@ while keep_going:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             keep_going = False
+    screen.fill((0,0,0))
     for n in range(100):
         pygame.draw.circle(screen, colors[n], locations[n], sizes[n])
-        new_x = locations[n][0] + 1 # x + 1
-        new_y = locations[n][1] + 1 # y + 1
-        locations[n] = (new_x, new_y)
-        if new_x > 800:
-            new_x -= 800
+        new_x = locations[n][0]
+        new_y = locations[n][1] + 1
         if new_y > 600:
             new_y -= 600
+            colors[n] =  (random.randint(0, 255), random.randint(0, 255),random.randint(0, 255),)
+            sizes[n] = random.randint(10, 100)
+            new_x = random.randint(0, 800)
         locations[n] = (new_x, new_y)
     pygame.display.update() 
     timer.tick(60)
